@@ -11,7 +11,7 @@
 
         /// <summary>始点</summary>
         public Vector2D V0 { get; set; }
-        
+
         /// <summary>終点</summary>
         public Vector2D V1 { get; set; }
 
@@ -24,7 +24,7 @@
         }
 
         /// <summary>不正な線分</summary>
-        public static Segment2D Invalid => new Segment2D(Vector2D.Invalid, Vector2D.Invalid);
+        public static Segment2D Invalid => new(Vector2D.Invalid, Vector2D.Invalid);
 
         /// <summary>有効な線分であるか判定</summary>
         public static bool IsValid(Segment2D segment) {

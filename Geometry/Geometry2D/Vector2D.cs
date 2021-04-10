@@ -58,7 +58,7 @@ namespace Geometry.Geometry2D {
 
         /// <summary>行列ベクトル積</summary>
         public static Vector2D operator *(Matrix2D m, Vector2D v) {
-            Vector2D ret = new Vector2D(v.X * m.E11 + v.Y * m.E12 + m.E13,
+            Vector2D ret = new(v.X * m.E11 + v.Y * m.E12 + m.E13,
                                         v.X * m.E21 + v.Y * m.E22 + m.E23);
 
             double w = v.X * m.E31 + v.Y * m.E32 + m.E33;
@@ -83,7 +83,7 @@ namespace Geometry.Geometry2D {
 
         /// <summary>等しいか判定</summary>
         public override bool Equals(object obj) {
-            return obj is Vector2D ? (Vector2D)obj == this : false;
+            return (!(obj is null)) && obj is Vector2D vector && vector == this;
         }
 
         /// <summary>ハッシュ値</summary>
@@ -119,10 +119,10 @@ namespace Geometry.Geometry2D {
         }
 
         /// <summary>ゼロベクトル</summary>
-        public static Vector2D Zero => new Vector2D(0, 0);
+        public static Vector2D Zero => new(0, 0);
 
         /// <summary>不正なベクトル</summary>
-        public static Vector2D Invalid => new Vector2D(double.NaN, double.NaN);
+        public static Vector2D Invalid => new(double.NaN, double.NaN);
 
         /// <summary>文字列化</summary>
         public override string ToString() {

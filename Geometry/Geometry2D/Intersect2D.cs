@@ -22,14 +22,14 @@ namespace Geometry.Geometry2D {
             double dv_sqnorm = dv.SquareNorm, radius = circle.Radius;
 
             double v = radius * radius * dv_sqnorm - dv.X * dv.X * ev.Y * ev.Y - dv.Y * dv.Y * ev.X * ev.X + 2 * dv.X * dv.Y * ev.X * ev.Y;
-            
-            if(!(v >= 0)) {
-                return new Vector2D[0];
+
+            if (!(v >= 0)) {
+                return Array.Empty<Vector2D>();
             }
 
             double ed_inner_product = Vector2D.InnerProduct(ev, dv);
 
-            if(v == 0) {
+            if (v == 0) {
                 double t = ed_inner_product / dv_sqnorm;
 
                 return new Vector2D[1] { line.V + t * line.Direction };

@@ -14,7 +14,7 @@ namespace Geometry.Geometry2D {
 
         /// <summary>構成点0</summary>
         public Vector2D V0 { get; set; }
-        
+
         /// <summary>構成点1</summary>
         public Vector2D V1 { get; set; }
 
@@ -37,7 +37,7 @@ namespace Geometry.Geometry2D {
         }
 
         /// <summary>不正な三角形</summary>
-        public static Triangle2D Invalid => new Triangle2D(Vector2D.Invalid, Vector2D.Invalid, Vector2D.Invalid);
+        public static Triangle2D Invalid => new(Vector2D.Invalid, Vector2D.Invalid, Vector2D.Invalid);
 
         /// <summary>有効な三角形であるか判定</summary>
         public static bool IsValid(Triangle2D triangle) {

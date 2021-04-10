@@ -72,8 +72,8 @@ namespace Geometry.Geometry3D {
 
         /// <summary>行列ベクトル積</summary>
         public static Vector3D operator *(Matrix3D m, Vector3D v) {
-            Vector3D ret = new Vector3D(v.X * m.E11 + v.Y * m.E12 + v.Z * m.E13 + m.E14, 
-                                        v.X * m.E21 + v.Y * m.E22 + v.Z * m.E23 + m.E24, 
+            Vector3D ret = new(v.X * m.E11 + v.Y * m.E12 + v.Z * m.E13 + m.E14,
+                                        v.X * m.E21 + v.Y * m.E22 + v.Z * m.E23 + m.E24,
                                         v.X * m.E31 + v.Y * m.E32 + v.Z * m.E33 + m.E34);
 
             double w = v.X * m.E41 + v.Y * m.E42 + v.Z * m.E43 + m.E44;
@@ -93,7 +93,7 @@ namespace Geometry.Geometry3D {
 
         /// <summary>等しいか判定</summary>
         public override bool Equals(object obj) {
-            return obj is Vector3D ? (Vector3D)obj == this : false;
+            return (!(obj is null)) && obj is Vector3D vector && vector == this;
         }
 
         /// <summary>ハッシュ値</summary>
@@ -132,10 +132,10 @@ namespace Geometry.Geometry3D {
         }
 
         /// <summary>ゼロベクトル</summary>
-        public static Vector3D Zero => new Vector3D(0, 0, 0);
+        public static Vector3D Zero => new(0, 0, 0);
 
         /// <summary>不正なベクトル</summary>
-        public static Vector3D Invalid => new Vector3D(double.NaN, double.NaN, double.NaN);
+        public static Vector3D Invalid => new(double.NaN, double.NaN, double.NaN);
 
         /// <summary>文字列化</summary>
         public override string ToString() {

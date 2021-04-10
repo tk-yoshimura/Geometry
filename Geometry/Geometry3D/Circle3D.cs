@@ -55,7 +55,7 @@ namespace Geometry.Geometry3D {
             Vector3D a = triangle.V0 - triangle.V1, b = triangle.V1 - triangle.V2, c = triangle.V2 - triangle.V0;
 
             double a_norm = a.Norm, b_norm = b.Norm, c_norm = c.Norm, s = triangle.Area, sum_norm = a_norm + b_norm + c_norm;
-            
+
             Vector3D center = (a_norm * triangle.V2 + b_norm * triangle.V0 + c_norm * triangle.V1) / sum_norm;
             Vector3D normal = -a * c;
             double radius = 2 * s / sum_norm;
@@ -64,11 +64,11 @@ namespace Geometry.Geometry3D {
         }
 
         /// <summary>不正な円</summary>
-        public static Circle3D Invalid => new Circle3D(Vector3D.Invalid, Vector3D.Invalid, double.NaN);
+        public static Circle3D Invalid => new(Vector3D.Invalid, Vector3D.Invalid, double.NaN);
 
         /// <summary>有効な円であるか判定</summary>
         public static bool IsValid(Circle3D circle) {
-            return Vector3D.IsValid(circle.Center) && Vector3D.IsValid(circle.Normal) && !double.IsNaN(circle.Radius) &&  !double.IsInfinity(circle.Radius);
+            return Vector3D.IsValid(circle.Center) && Vector3D.IsValid(circle.Normal) && !double.IsNaN(circle.Radius) && !double.IsInfinity(circle.Radius);
         }
     }
 }

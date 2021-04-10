@@ -46,7 +46,7 @@
         public double D { get; set; }
 
         /// <summary>不正な平面</summary>
-        public static Plane3D Invalid => new Plane3D(Vector3D.Invalid, double.NaN);
+        public static Plane3D Invalid => new(Vector3D.Invalid, double.NaN);
 
         /// <summary>有効な平面であるか判定</summary>
         public static bool IsValid(Plane3D plane) {

@@ -35,7 +35,7 @@ namespace Geometry.Geometry3D {
         /// <param name="v1">始点ベクトル</param>
         /// <param name="v2">終点ベクトル</param>
         public Quaternion(Vector3D v1, Vector3D v2) {
-            if(v1 != v2) {
+            if (v1 != v2) {
                 double v1_norm = v1.Norm, v2_norm = v2.Norm;
                 this = new Quaternion(v1 * v2, Math.Acos(Vector3D.InnerProduct(v1, v2) / (v1_norm * v2_norm))) * Math.Sqrt(v2_norm / v1_norm);
             }
@@ -66,7 +66,7 @@ namespace Geometry.Geometry3D {
         public Quaternion Unit => this / Norm;
 
         /// <summary>共役四元数</summary>
-        public Quaternion Conjugate => new Quaternion(R, -I, -J, -K);
+        public Quaternion Conjugate => new(R, -I, -J, -K);
 
         /// <summary>逆数</summary>
         public Quaternion Inverse => Conjugate / SquareNorm;
@@ -159,7 +159,7 @@ namespace Geometry.Geometry3D {
 
         /// <summary>等しいか判定</summary>
         public override bool Equals(object obj) {
-            return obj is Quaternion ? (Quaternion)obj == this : false;
+            return (!(obj is null)) && obj is Quaternion q && q == this;
         }
 
         /// <summary>ハッシュ値</summary>
@@ -193,10 +193,10 @@ namespace Geometry.Geometry3D {
         }
 
         /// <summary>0</summary>
-        public static Quaternion Zero => new Quaternion(0, 0, 0, 0);
+        public static Quaternion Zero => new(0, 0, 0, 0);
 
         /// <summary>1</summary>
-        public static Quaternion Identity => new Quaternion(1, 0, 0, 0);
+        public static Quaternion Identity => new(1, 0, 0, 0);
 
         /// <summary>文字列化</summary>
         public override string ToString() {

@@ -48,29 +48,29 @@ namespace Geometry.Geometry3D {
             pvec = dir * ev;
             det = Vector3D.InnerProduct(eu, pvec);
 
-            if(det > 0) {
+            if (det > 0) {
                 tvec = line.V - triangle.V0;
                 inv_u = Vector3D.InnerProduct(tvec, pvec);
-                if(inv_u < 0 || inv_u > det) {
+                if (inv_u < 0 || inv_u > det) {
                     return Vector3D.Invalid;
                 }
 
                 qvec = tvec * eu;
                 inv_v = Vector3D.InnerProduct(dir, qvec);
-                if(inv_v < 0 || inv_u + inv_v > det) {
+                if (inv_v < 0 || inv_u + inv_v > det) {
                     return Vector3D.Invalid;
                 }
             }
-            else if(det < 0) {
+            else if (det < 0) {
                 tvec = line.V - triangle.V0;
                 inv_u = Vector3D.InnerProduct(tvec, pvec);
-                if(inv_u > 0 || inv_u < det) {
+                if (inv_u > 0 || inv_u < det) {
                     return Vector3D.Invalid;
                 }
 
                 qvec = tvec * eu;
                 inv_v = Vector3D.InnerProduct(dir, qvec);
-                if(inv_v > 0 || inv_u + inv_v < det) {
+                if (inv_v > 0 || inv_u + inv_v < det) {
                     return Vector3D.Invalid;
                 }
             }
@@ -101,11 +101,11 @@ namespace Geometry.Geometry3D {
             c = otoc.SquareNorm - sphere.Radius * sphere.Radius;
             v = b * b - 4 * c;
 
-            if(!(v >= 0)) {
-                return new Vector3D[0];
+            if (!(v >= 0)) {
+                return Array.Empty<Vector3D>();
             }
 
-            if(v == 0) {
+            if (v == 0) {
                 double t = -0.5 * b;
                 return new Vector3D[] { line.V + t * line.Direction.Normal };
             }
@@ -123,7 +123,7 @@ namespace Geometry.Geometry3D {
 
             line_dir = (plane1.Normal * plane2.Normal).Normal;
 
-            if(line_dir.X != 0) {
+            if (line_dir.X != 0) {
                 inv = 1 / line_dir.X;
 
                 line_org = new Vector3D(0,
@@ -133,7 +133,7 @@ namespace Geometry.Geometry3D {
                 return new Line3D(line_org, line_dir);
             }
 
-            if(line_dir.Y != 0) {
+            if (line_dir.Y != 0) {
                 inv = 1 / line_dir.Y;
 
                 line_org = new Vector3D((plane2.D * normal1.Z - plane1.D * normal2.Z) * inv,
@@ -143,7 +143,7 @@ namespace Geometry.Geometry3D {
                 return new Line3D(line_org, line_dir);
             }
 
-            if(line_dir.Z != 0) {
+            if (line_dir.Z != 0) {
                 inv = 1 / line_dir.Z;
 
                 line_org = new Vector3D((plane1.D * normal2.Y - plane2.D * normal1.Y) * inv,
@@ -160,7 +160,7 @@ namespace Geometry.Geometry3D {
         public static Circle3D PlaneSphere(Plane3D plane, Sphere3D sphere) {
             double t = -(Vector3D.InnerProduct(sphere.Center, plane.Normal) + plane.D);
 
-            if(Math.Abs(t) > sphere.Radius) {
+            if (Math.Abs(t) > sphere.Radius) {
                 return Circle3D.Invalid;
             }
 
@@ -177,7 +177,7 @@ namespace Geometry.Geometry3D {
             rm01 = r0 - r1;
             rp01 = r0 + r1;
 
-            if(((rp01 * rp01) <= r01) || ((rm01 * rm01) >= r01)) {
+            if (((rp01 * rp01) <= r01) || ((rm01 * rm01) >= r01)) {
                 return Circle3D.Invalid;
             }
 

@@ -42,7 +42,7 @@ namespace Geometry.Geometry2D {
             Vector2D a = triangle.V0 - triangle.V1, b = triangle.V1 - triangle.V2, c = triangle.V2 - triangle.V0;
 
             double a_norm = a.Norm, b_norm = b.Norm, c_norm = c.Norm, s = triangle.Area, sum_norm = a_norm + b_norm + c_norm;
-            
+
             Vector2D center = (a_norm * triangle.V2 + b_norm * triangle.V0 + c_norm * triangle.V1) / sum_norm;
             double radius = 2 * s / sum_norm;
 
@@ -50,7 +50,7 @@ namespace Geometry.Geometry2D {
         }
 
         /// <summary>不正な円</summary>
-        public static Circle2D Invalid => new Circle2D(Vector2D.Invalid, double.NaN);
+        public static Circle2D Invalid => new(Vector2D.Invalid, double.NaN);
 
         /// <summary>有効な円であるか判定</summary>
         public static bool IsValid(Circle2D circle) {

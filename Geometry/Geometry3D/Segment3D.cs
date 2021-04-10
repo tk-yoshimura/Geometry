@@ -11,7 +11,7 @@
 
         /// <summary>始点</summary>
         public Vector3D V0 { get; set; }
-        
+
         /// <summary>終点</summary>
         public Vector3D V1 { get; set; }
 
@@ -24,7 +24,7 @@
         }
 
         /// <summary>不正な線分</summary>
-        public static Segment3D Invalid => new Segment3D(Vector3D.Invalid, Vector3D.Invalid);
+        public static Segment3D Invalid => new(Vector3D.Invalid, Vector3D.Invalid);
 
         /// <summary>有効な線分であるか判定</summary>
         public static bool IsValid(Segment3D segment) {

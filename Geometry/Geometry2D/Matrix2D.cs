@@ -123,13 +123,13 @@ namespace Geometry.Geometry2D {
 
         /// <summary>等しいか判定</summary>
         public static bool operator ==(Matrix2D m1, Matrix2D m2) {
-            if(m1.E11 != m2.E11 || m1.E12 != m2.E12 || m1.E13 != m2.E13)
+            if (m1.E11 != m2.E11 || m1.E12 != m2.E12 || m1.E13 != m2.E13)
                 return false;
 
-            if(m1.E21 != m2.E21 || m1.E22 != m2.E22 || m1.E23 != m2.E23)
+            if (m1.E21 != m2.E21 || m1.E22 != m2.E22 || m1.E23 != m2.E23)
                 return false;
 
-            if(m1.E31 != m2.E31 || m1.E32 != m2.E32 || m1.E33 != m2.E33)
+            if (m1.E31 != m2.E31 || m1.E32 != m2.E32 || m1.E33 != m2.E33)
                 return false;
 
             return true;
@@ -142,7 +142,7 @@ namespace Geometry.Geometry2D {
 
         /// <summary>等しいか判定</summary>
         public override bool Equals(object obj) {
-            return obj is Matrix2D ? (Matrix2D)obj == this : false;
+            return (!(obj is null)) && obj is Matrix2D matrix && matrix == this;
         }
 
         /// <summary>ハッシュ値</summary>
@@ -174,10 +174,10 @@ namespace Geometry.Geometry2D {
         }
 
         /// <summary>ゼロ行列</summary>
-        public static Matrix2D Zero => new Matrix2D(0, 0, 0, 0, 0, 0, 0, 0, 0);
+        public static Matrix2D Zero => new(0, 0, 0, 0, 0, 0, 0, 0, 0);
 
         /// <summary>単位行列</summary>
-        public static Matrix2D Identity => new Matrix2D(1, 0, 0, 1);
+        public static Matrix2D Identity => new(1, 0, 0, 1);
 
         /// <summary>不正な行列</summary>
         public static Matrix2D Invalid {

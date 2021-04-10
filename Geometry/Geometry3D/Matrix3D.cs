@@ -173,16 +173,16 @@ namespace Geometry.Geometry3D {
 
         /// <summary>等しいか判定</summary>
         public static bool operator ==(Matrix3D m1, Matrix3D m2) {
-            if(m1.E11 != m2.E11 || m1.E12 != m2.E12 || m1.E13 != m2.E13 || m1.E14 != m2.E14)
+            if (m1.E11 != m2.E11 || m1.E12 != m2.E12 || m1.E13 != m2.E13 || m1.E14 != m2.E14)
                 return false;
 
-            if(m1.E21 != m2.E21 || m1.E22 != m2.E22 || m1.E23 != m2.E23 || m1.E24 != m2.E24)
+            if (m1.E21 != m2.E21 || m1.E22 != m2.E22 || m1.E23 != m2.E23 || m1.E24 != m2.E24)
                 return false;
 
-            if(m1.E31 != m2.E31 || m1.E32 != m2.E32 || m1.E33 != m2.E33 || m1.E24 != m2.E24)
+            if (m1.E31 != m2.E31 || m1.E32 != m2.E32 || m1.E33 != m2.E33 || m1.E24 != m2.E24)
                 return false;
 
-            if(m1.E41 != m2.E41 || m1.E42 != m2.E42 || m1.E43 != m2.E43 || m1.E44 != m2.E44)
+            if (m1.E41 != m2.E41 || m1.E42 != m2.E42 || m1.E43 != m2.E43 || m1.E44 != m2.E44)
                 return false;
 
             return true;
@@ -195,7 +195,7 @@ namespace Geometry.Geometry3D {
 
         /// <summary>等しいか判定</summary>
         public override bool Equals(object obj) {
-            return obj is Matrix3D ? (Matrix3D)obj == this : false;
+            return (!(obj is null)) && obj is Matrix3D matrix && matrix == this;
         }
 
         /// <summary>ハッシュ値</summary>
@@ -277,10 +277,10 @@ namespace Geometry.Geometry3D {
         }
 
         /// <summary>ゼロ行列</summary>
-        public static Matrix3D Zero => new Matrix3D(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+        public static Matrix3D Zero => new(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
 
         /// <summary>単位行列</summary>
-        public static Matrix3D Identity => new Matrix3D(1, 0, 0, 0, 1, 0, 0, 0, 1);
+        public static Matrix3D Identity => new(1, 0, 0, 0, 1, 0, 0, 0, 1);
 
         /// <summary>不正な行列</summary>
         public static Matrix3D Invalid {

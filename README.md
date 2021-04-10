@@ -2,7 +2,7 @@
  Geometry 2d/3d
 
 ## Requirement
- .NET Standard 2.0
+ .NET 5.0
  
  ## Install
 [Download DLL](https://github.com/tk-yoshimura/Geometry/releases)

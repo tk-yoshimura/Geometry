@@ -40,7 +40,7 @@ namespace Geometry.Geometry3D {
         public double Volume => 4.0 / 3.0 * Radius * Radius * Radius * Math.PI;
 
         /// <summary>不正な球</summary>
-        public static Sphere3D Invalid => new Sphere3D(Vector3D.Invalid, double.NaN);
+        public static Sphere3D Invalid => new(Vector3D.Invalid, double.NaN);
 
         /// <summary>有効な球であるか判定</summary>
         public static bool IsValid(Sphere3D sphere) {

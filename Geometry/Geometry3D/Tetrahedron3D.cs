@@ -28,14 +28,14 @@ namespace Geometry.Geometry3D {
         /// <summary>面積</summary>
         public double Area {
             get {
-                Triangle3D t123 = new Triangle3D(V1, V2, V3), t023 = new Triangle3D(V0, V2, V3), t013 = new Triangle3D(V0, V1, V3), t012 = new Triangle3D(V0, V1, V2);
+                Triangle3D t123 = new(V1, V2, V3), t023 = new(V0, V2, V3), t013 = new(V0, V1, V3), t012 = new(V0, V1, V2);
 
                 return t123.Area + t023.Area + t013.Area + t012.Area;
             }
         }
 
         /// <summary>体積</summary>
-        public double Volume{
+        public double Volume {
             get {
                 return Math.Abs(Vector3D.InnerProduct((V1 - V0) * (V2 - V0), V3 - V0)) / 6;
             }
@@ -46,7 +46,7 @@ namespace Geometry.Geometry3D {
         }
 
         /// <summary>不正な四面体</summary>
-        public static Tetrahedron3D Invalid => new Tetrahedron3D(Vector3D.Invalid, Vector3D.Invalid, Vector3D.Invalid, Vector3D.Invalid);
+        public static Tetrahedron3D Invalid => new(Vector3D.Invalid, Vector3D.Invalid, Vector3D.Invalid, Vector3D.Invalid);
 
         /// <summary>有効な四面体であるか判定</summary>
         public static bool IsValid(Tetrahedron3D tetrahedron) {

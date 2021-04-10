@@ -14,7 +14,7 @@ namespace Geometry.Geometry3D {
 
         /// <summary>構成点0</summary>
         public Vector3D V0 { get; set; }
-        
+
         /// <summary>構成点1</summary>
         public Vector3D V1 { get; set; }
 
@@ -30,7 +30,7 @@ namespace Geometry.Geometry3D {
         }
 
         /// <summary>不正な三角形</summary>
-        public static Triangle3D Invalid => new Triangle3D(Vector3D.Invalid, Vector3D.Invalid, Vector3D.Invalid);
+        public static Triangle3D Invalid => new(Vector3D.Invalid, Vector3D.Invalid, Vector3D.Invalid);
 
         /// <summary>有効な三角形であるか判定</summary>
         public static bool IsValid(Triangle3D triangle) {
