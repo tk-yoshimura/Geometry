@@ -9,7 +9,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
 [assembly: AssemblyProduct("Geometry")]
-[assembly: AssemblyCopyright("Copyright © T.Yoshimura 2019-2021")]
+[assembly: AssemblyCopyright("Copyright © T.Yoshimura 2019-2022")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
@@ -28,4 +28,4 @@ using System.Runtime.InteropServices;
 //      ビルド番号
 //      リビジョン
 //
-[assembly: AssemblyVersion("1.1.*")]
+[assembly: AssemblyVersion("1.2.0")]
