@@ -2,7 +2,7 @@
  Geometry 2d/3d
 
 ## Requirement
- .NET 5.0
+ .NET 6.0
  
  ## Install
 [Download DLL](https://github.com/tk-yoshimura/Geometry/releases)
@@ -15,4 +15,4 @@
 
 ## Author
 
-[tk-yoshimura](https://github.com/tk-yoshimura)
+[T.Yoshimura](https://github.com/tk-yoshimura)
