@@ -92,7 +92,7 @@ namespace Geometry.Geometry3D {
         public double E44 { get; set; }
 
         /// <summary>転置</summary>
-        public Matrix3D Transpose {
+        public readonly Matrix3D Transpose {
             get {
                 return new Matrix3D(E11, E21, E31, E41,
                                     E12, E22, E32, E42,
@@ -194,12 +194,12 @@ namespace Geometry.Geometry3D {
         }
 
         /// <summary>等しいか判定</summary>
-        public override bool Equals(object obj) {
+        public override readonly bool Equals(object obj) {
             return (!(obj is null)) && obj is Matrix3D matrix && matrix == this;
         }
 
         /// <summary>ハッシュ値</summary>
-        public override int GetHashCode() {
+        public override readonly int GetHashCode() {
             return E11.GetHashCode() ^ E12.GetHashCode() ^ E13.GetHashCode()
                  ^ E21.GetHashCode() ^ E22.GetHashCode() ^ E23.GetHashCode()
                  ^ E31.GetHashCode() ^ E32.GetHashCode() ^ E33.GetHashCode();
@@ -291,7 +291,7 @@ namespace Geometry.Geometry3D {
         }
 
         /// <summary>文字列化</summary>
-        public override string ToString() {
+        public override readonly string ToString() {
             return $"{{ {{ {E11}, {E12}, {E13}, {E14} }}, {{ {E21}, {E22}, {E23}, {E24} }}, {{ {E31}, {E32}, {E33}, {E34} }}, {{ {E41}, {E42}, {E43}, {E44} }} }}";
         }
     }

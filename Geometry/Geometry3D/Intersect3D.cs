@@ -102,17 +102,17 @@ namespace Geometry.Geometry3D {
             v = b * b - 4 * c;
 
             if (!(v >= 0)) {
-                return Array.Empty<Vector3D>();
+                return [];
             }
 
             if (v == 0) {
                 double t = -0.5 * b;
-                return new Vector3D[] { line.V + t * line.Direction.Normal };
+                return [line.V + t * line.Direction.Normal];
             }
             else {
                 double t1 = -0.5 * (b + Math.Sqrt(v)), t2 = -0.5 * (b - Math.Sqrt(v));
 
-                return new Vector3D[] { line.V + t1 * line.Direction.Normal, line.V + t2 * line.Direction.Normal };
+                return [line.V + t1 * line.Direction.Normal, line.V + t2 * line.Direction.Normal];
             }
         }
 

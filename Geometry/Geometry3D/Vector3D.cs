@@ -22,10 +22,10 @@ namespace Geometry.Geometry3D {
         public double Z { get; set; }
 
         /// <summary>ノルム</summary>
-        public double Norm => Math.Sqrt(X * X + Y * Y + Z * Z);
+        public readonly double Norm => Math.Sqrt(X * X + Y * Y + Z * Z);
 
         /// <summary>ノルム二乗</summary>
-        public double SquareNorm => X * X + Y * Y + Z * Z;
+        public readonly double SquareNorm => X * X + Y * Y + Z * Z;
 
         /// <summary>正規化ベクトル</summary>
         public Vector3D Normal => this / Norm;
@@ -92,12 +92,12 @@ namespace Geometry.Geometry3D {
         }
 
         /// <summary>等しいか判定</summary>
-        public override bool Equals(object obj) {
+        public override readonly bool Equals(object obj) {
             return (!(obj is null)) && obj is Vector3D vector && vector == this;
         }
 
         /// <summary>ハッシュ値</summary>
-        public override int GetHashCode() {
+        public override readonly int GetHashCode() {
             return X.GetHashCode() ^ Y.GetHashCode() ^ Z.GetHashCode();
         }
 
@@ -138,7 +138,7 @@ namespace Geometry.Geometry3D {
         public static Vector3D Invalid => new(double.NaN, double.NaN, double.NaN);
 
         /// <summary>文字列化</summary>
-        public override string ToString() {
+        public override readonly string ToString() {
             return $"{X},{Y},{Z}";
         }
     }

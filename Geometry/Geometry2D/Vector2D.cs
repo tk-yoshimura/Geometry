@@ -18,10 +18,10 @@ namespace Geometry.Geometry2D {
         public double Y { get; set; }
 
         /// <summary>ノルム</summary>
-        public double Norm => Math.Sqrt(X * X + Y * Y);
+        public readonly double Norm => Math.Sqrt(X * X + Y * Y);
 
         /// <summary>ノルム二乗</summary>
-        public double SquareNorm => X * X + Y * Y;
+        public readonly double SquareNorm => X * X + Y * Y;
 
         /// <summary>正規化ベクトル</summary>
         public Vector2D Normal => this / Norm;
@@ -82,12 +82,12 @@ namespace Geometry.Geometry2D {
         }
 
         /// <summary>等しいか判定</summary>
-        public override bool Equals(object obj) {
+        public override readonly bool Equals(object obj) {
             return (!(obj is null)) && obj is Vector2D vector && vector == this;
         }
 
         /// <summary>ハッシュ値</summary>
-        public override int GetHashCode() {
+        public override readonly int GetHashCode() {
             return X.GetHashCode() ^ Y.GetHashCode();
         }
 
@@ -125,7 +125,7 @@ namespace Geometry.Geometry2D {
         public static Vector2D Invalid => new(double.NaN, double.NaN);
 
         /// <summary>文字列化</summary>
-        public override string ToString() {
+        public override readonly string ToString() {
             return $"{X},{Y}";
         }
     }

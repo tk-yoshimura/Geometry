@@ -57,16 +57,16 @@ namespace Geometry.Geometry3D {
         public double K { get; set; }
 
         /// <summary>ノルム</summary>
-        public double Norm => Math.Sqrt(R * R + I * I + J * J + K * K);
+        public readonly double Norm => Math.Sqrt(R * R + I * I + J * J + K * K);
 
         /// <summary>ノルム2乗</summary>
-        public double SquareNorm => R * R + I * I + J * J + K * K;
+        public readonly double SquareNorm => R * R + I * I + J * J + K * K;
 
         /// <summary>単位四元数</summary>
         public Quaternion Unit => this / Norm;
 
         /// <summary>共役四元数</summary>
-        public Quaternion Conjugate => new(R, -I, -J, -K);
+        public readonly Quaternion Conjugate => new(R, -I, -J, -K);
 
         /// <summary>逆数</summary>
         public Quaternion Inverse => Conjugate / SquareNorm;
@@ -158,12 +158,12 @@ namespace Geometry.Geometry3D {
         }
 
         /// <summary>等しいか判定</summary>
-        public override bool Equals(object obj) {
+        public override readonly bool Equals(object obj) {
             return (!(obj is null)) && obj is Quaternion q && q == this;
         }
 
         /// <summary>ハッシュ値</summary>
-        public override int GetHashCode() {
+        public override readonly int GetHashCode() {
             return R.GetHashCode() ^ I.GetHashCode() ^ J.GetHashCode() ^ K.GetHashCode();
         }
 
@@ -199,7 +199,7 @@ namespace Geometry.Geometry3D {
         public static Quaternion Identity => new(1, 0, 0, 0);
 
         /// <summary>文字列化</summary>
-        public override string ToString() {
+        public override readonly string ToString() {
             return $"{R},{I},{J},{K}";
         }
     }

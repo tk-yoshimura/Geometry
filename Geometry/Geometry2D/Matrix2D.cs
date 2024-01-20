@@ -57,7 +57,7 @@ namespace Geometry.Geometry2D {
         public double E33 { get; set; }
 
         /// <summary>転置</summary>
-        public Matrix2D Transpose {
+        public readonly Matrix2D Transpose {
             get {
                 return new Matrix2D(E11, E21, E31,
                                     E12, E22, E32,
@@ -141,12 +141,12 @@ namespace Geometry.Geometry2D {
         }
 
         /// <summary>等しいか判定</summary>
-        public override bool Equals(object obj) {
-            return (!(obj is null)) && obj is Matrix2D matrix && matrix == this;
+        public override readonly bool Equals(object obj) {
+            return (obj is not null) && obj is Matrix2D matrix && matrix == this;
         }
 
         /// <summary>ハッシュ値</summary>
-        public override int GetHashCode() {
+        public override readonly int GetHashCode() {
             return E11.GetHashCode() ^ E12.GetHashCode() ^ E13.GetHashCode()
                  ^ E21.GetHashCode() ^ E22.GetHashCode() ^ E23.GetHashCode()
                  ^ E31.GetHashCode() ^ E32.GetHashCode() ^ E33.GetHashCode();
@@ -188,7 +188,7 @@ namespace Geometry.Geometry2D {
         }
 
         /// <summary>文字列化</summary>
-        public override string ToString() {
+        public override readonly string ToString() {
             return $"{{ {{ {E11}, {E12}, {E13} }}, {{ {E21}, {E22}, {E23} }}, {{ {E31}, {E32}, {E33} }} }}";
         }
     }

@@ -2,13 +2,11 @@
  Geometry 2d/3d
 
 ## Requirement
- .NET 6.0
+ .NET 8.0
  
  ## Install
 [Download DLL](https://github.com/tk-yoshimura/Geometry/releases)
-
-- To install, just import the DLL.
-- This library does not change the environment at all.
+[Download nuget](https://www.nuget.org/packages/TYoshimura.Geometry/)
 
 ## Licence
 [MIT](https://github.com/tk-yoshimura/Geometry/blob/master/LICENSE)
